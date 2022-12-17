@@ -18,10 +18,10 @@ test: $(VENV)/requirements_init ## run pytest
 	. $(VENV)/bin/activate && pytest -rA -vvs --log-level INFO
 
 lint: $(VENV)/requirements_init ## run flake8 to check the code
-	. $(VENV)/bin/activate && flake8 src tests *.py
+	. $(VENV)/bin/activate && flake8 *.py
 
 fmt: $(VENV)/requirements_init ## run black to format the code
-	. $(VENV)/bin/activate && black src tests *.py
+	. $(VENV)/bin/activate && black *.py
 
 $(VENV)/init: ## init the virtual environment
 	python3 -m venv $(VENV)
