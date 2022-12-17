@@ -8,6 +8,8 @@ ORG?=xebia
 help: ## list targets with short description
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9._-]+:.*?## / {printf "\033[1m\033[36m%-38s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
+setup: $(VENV)/requirements_init ## setup virtual env and requirements
+
 run: $(VENV)/requirements_init
 	$(PY) ./gh-query.py members $(ORG) >members.ndjson
 	$(PY) ./gh-query.py prs <members.ndjson >prs.ndjson

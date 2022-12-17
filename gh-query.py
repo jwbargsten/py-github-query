@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 import os
 from gql import Client, gql
 from gql.transport.aiohttp import AIOHTTPTransport
@@ -8,6 +9,7 @@ import argparse
 from inspect import getsourcefile
 from textwrap import dedent
 
+load_dotenv()
 
 log_dfmt = "%Y-%m-%d %H:%M:%S"
 log_fmt = "[%(asctime)s] [%(levelname)s] %(name)s.%(funcName)s: %(message)s"
