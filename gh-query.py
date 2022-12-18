@@ -173,7 +173,7 @@ def get_prs(args, client):
                 print(json.dumps(pr))
 
 
-token = os.environ["GITHUB_PAT"]
+token = os.environ.get("GITHUB_PAT", None)
 if not token:
     logger.fatal("no token defined, expecting valid token set via env var GITHUB_PAT")
     exit(1)
